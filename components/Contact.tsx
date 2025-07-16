@@ -7,13 +7,18 @@ const Contact: React.FC = () => {
     <section id="contact">
       <footer className="w-full py-12 px-4 md:px-0 max-w-6xl mx-auto text-white text-center">
         <div className="mb-8">
-          <h1 className="text-5xl font-bold mb-6">Contactez Nous</h1>
+          <h1
+            className="text-5xl font-bold mb-6"
+            dangerouslySetInnerHTML={{ __html: "Contactez&nbsp;Nous" }}
+          />
+
           <a 
             href="mailto:starsarena974@gmail.com" 
             className="text-2xl hover:text-[#8157ff] transition-colors block mb-6"
           >
             starsarena974@gmail.com
           </a>
+
           {/* Icônes des réseaux sociaux */}
           <div className="flex justify-center space-x-6">
             <a href="#" className="hover:opacity-80 transition-opacity">
@@ -47,7 +52,7 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="text-lg mb-4">
-          Copyright © - 2025 StarsArena
+          Copyright &copy; - 2025 StarsArena
         </div>
 
         <div className="flex justify-center space-x-6">
@@ -55,7 +60,7 @@ const Contact: React.FC = () => {
             Privacy Policy
           </Link>
           <Link href="/terms" className="hover:text-[#8157ff] transition-colors">
-            Term & Condition
+            Term &amp; Condition
           </Link>
           <Link href="/disclosures" className="hover:text-[#8157ff] transition-colors">
             Disclosures

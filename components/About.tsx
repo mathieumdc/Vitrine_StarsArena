@@ -3,12 +3,12 @@ import Image from "next/image";
 
 const content = [
   {
-    title: "C’est quoi StarsArena ?",
+    title: "C&rsquo;est quoi StarsArena ?",
     description: [
       "Tu es chanteur, rappeur, beatmaker en quête de visibilité ?",
       "Tu rêves de faire découvrir ton talent sans bouger de chez toi ?",
       "StarsArena est une app de tournois musicaux en ligne.",
-      "Ici, les artistes s’affrontent en duel, le public vote, et les meilleurs montent sur le podium !",
+      "Ici, les artistes s&rsquo;affrontent en duel, le public vote, et les meilleurs montent sur le podium !",
     ],
     img: "/rapBattle.svg",
   },
@@ -18,7 +18,7 @@ const content = [
       "Transforme ta passion en revenus et en fans fidèles.",
       "Participe à des battles en ligne pour te faire repérer.",
       "Gagne en visibilité et fais évoluer ton projet musical.",
-      "Deviens acteur d’une nouvelle scène musicale plus ouverte et plus interactive.",
+      "Deviens acteur d&rsquo;une nouvelle scène musicale plus ouverte et plus interactive.",
     ],
     img: "/singer2.png",
   },
@@ -27,7 +27,7 @@ const content = [
     description: [
       "Exprime ton talent depuis ton téléphone, sans te déplacer.",
       "Chante, rappe, compose : tout style est le bienvenu.",
-      "Tu n’as pas besoin d’être chanteur pour faire partie du show : beatmakers, DJ… tu as ta place.",
+      "Tu n&rsquo;as pas besoin d&rsquo;être chanteur pour faire partie du show : beatmakers, DJ… tu as ta place.",
     ],
     img: "/singer1.png",
   },
@@ -54,10 +54,10 @@ const About: React.FC = () => {
         >
           {/* Texte */}
           <div className="bg-[#120e23] border border-[#8157ff] rounded-lg p-6 text-white flex flex-col justify-center items-center text-center h-[538px]">
-            <h2 className="text-5xl font-bold mb-6">{item.title}</h2>
+            <h2 className="text-5xl font-bold mb-6" dangerouslySetInnerHTML={{ __html: item.title }} />
             <ul className="list-disc pl-5 space-y-4 text-2xl font-semibold text-left max-w-[90%]">
               {item.description.map((line, i) => (
-                <li key={i}>{line}</li>
+                <li key={i} dangerouslySetInnerHTML={{ __html: line }} />
               ))}
             </ul>
           </div>
