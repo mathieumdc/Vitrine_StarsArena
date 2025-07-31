@@ -44,38 +44,47 @@ const content = [
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="w-full py-20 px-4 md:px-0 max-w-6xl mx-auto">
-      {content.map((item, index) => (
-        <div
-          key={index}
-          className={`grid md:grid-cols-2 gap-x-5 ${
-            index !== content.length - 1 ? "mb-10" : ""
-          }`}
-        >
-          {/* Texte */}
-          <div className="bg-[#120e23] border border-[#8157ff] rounded-lg p-6 text-white flex flex-col justify-center items-center text-center h-[538px]">
-            <h2 className="text-5xl font-bold mb-6" dangerouslySetInnerHTML={{ __html: item.title }} />
-            <ul className="list-disc pl-5 space-y-4 text-2xl font-semibold text-left max-w-[90%]">
-              {item.description.map((line, i) => (
-                <li key={i} dangerouslySetInnerHTML={{ __html: line }} />
-              ))}
-            </ul>
-          </div>
-
-          {/* Image */}
-          <div className="w-full flex justify-center items-center h-[538px]">
-            <div className="w-full h-full overflow-hidden rounded-lg">
-              <Image
-                src={item.img}
-                alt=""
-                width={800}
-                height={538}
-                className="object-cover w-full h-full rounded-lg"
+    <section
+      id="about"
+      className="relative w-full py-28 px-6 max-w-7xl mx-auto overflow-hidden"
+    >
+      {content.map((item, index) => {
+        const isEven = index % 2 === 0;
+        return (
+          <div
+            key={index}
+            className={`flex flex-col md:flex-row ${
+              !isEven ? "md:flex-row-reverse" : ""
+            } items-center gap-12 md:gap-20 mb-32 group`}
+          >
+            {/* Texte */}
+            <div className="flex-1 bg-[#120e23] border border-purple-600 rounded-3xl p-10 text-white shadow-xl transition-all duration-500 hover:shadow-purple-700">
+              <h2
+                className="text-4xl md:text-5xl font-extrabold mb-8 text-purple-400 leading-snug drop-shadow-[0_0_10px_#a855f7]"
+                dangerouslySetInnerHTML={{ __html: item.title }}
               />
+              <ul className="list-disc pl-6 space-y-4 text-lg md:text-xl font-medium leading-relaxed">
+                {item.description.map((line, i) => (
+                  <li key={i} dangerouslySetInnerHTML={{ __html: line }} />
+                ))}
+              </ul>
+            </div>
+
+            {/* Image */}
+            <div className="flex-1 w-full">
+              <div className="rounded-3xl overflow-hidden shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-purple-400/50">
+                <Image
+                  src={item.img}
+                  alt=""
+                  width={800}
+                  height={538}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </section>
   );
 };
