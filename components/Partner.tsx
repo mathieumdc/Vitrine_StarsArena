@@ -1,83 +1,119 @@
+// components/Partner.tsx
+"use client";
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 
-const Partner: React.FC = () => {
-  return (
-    <section id="partner" className="w-full py-28 px-6 max-w-7xl mx-auto text-white">
-      {/* Titre principal */}
-      <div className="text-center mb-20">
-        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-          DEVENEZ PARTENAIRE DE STARSARENA
-        </h1>
-      </div>
-
-      {/* Deux bulles côte à côte */}
-      <div className="grid md:grid-cols-2 gap-12 mb-24">
-        {/* Bulle gauche */}
-        <div className="bg-[#120e23] border border-purple-600 rounded-3xl p-10 shadow-xl hover:shadow-purple-700 transition-shadow duration-300">
-          <div className="flex flex-col items-center mb-8">
-            <Image 
-              src="/icons8-musical-note.png" 
-              alt="Note musicale" 
-              width={64} 
-              height={64} 
-              className="mb-4"
-            />
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-purple-400 drop-shadow-[0_0_10px_#a855f7]">
-              POURQUOI DEVENIR PARTENAIRE ?
-            </h2>
-          </div>
-          <ul className="list-disc pl-6 space-y-4 text-lg md:text-xl font-medium leading-relaxed">
-            <li>Associez votre image à une app innovante</li>
-            <li dangerouslySetInnerHTML={{ __html: "Gagnez en visibilit&eacute; aupr&egrave;s d&apos;un public jeune et engag&eacute;" }} />
-            <li>Soutenez les nouveaux talents musicaux</li>
-            <li dangerouslySetInnerHTML={{ __html: "Participez &agrave; une nouvelle sc&egrave;ne musicale 100&#37; digitale" }} />
-          </ul>
-        </div>
-
-        {/* Bulle droite */}
-        <div className="bg-[#120e23] border border-purple-600 rounded-3xl p-10 shadow-xl hover:shadow-purple-700 transition-shadow duration-300">
-          <div className="flex flex-col items-center mb-8">
-            <Image 
-              src="/icons8-people.png" 
-              alt="Personnes" 
-              width={64} 
-              height={64} 
-              className="mb-4"
-            />
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-purple-400 drop-shadow-[0_0_10px_#a855f7]">
-              POUR QUI ?
-            </h2>
-          </div>
-          <ul className="list-disc pl-6 space-y-4 text-lg md:text-xl font-medium leading-relaxed">
-            <li>Radios</li>
-            <li>Labels</li>
-            <li>Médias</li>
-            <li>Marques et sponsors</li>
-            <li>Structures qui soutiennent les artistes</li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Call to action */}
-      <div className="text-center max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          Télécharge dès maintenant l&apos;app StarsArena !
-        </h2>
-        <p className="text-xl md:text-2xl mb-10 font-medium leading-relaxed">
-          <span
-            dangerouslySetInnerHTML={{
-              __html:
-                "D&eacute;couvre, vote et soutiens les artistes de demain. Participe &agrave; l&apos;aventure musicale depuis ton t&eacute;l&eacute;phone."
-            }}
-          />
-        </p>
-        <button className="bg-[#8157ff] hover:bg-[#6a46d5] transition-colors duration-300 text-white font-semibold py-4 px-10 rounded-full text-lg shadow-lg hover:shadow-purple-400/50">
-          Télécharger l&apos;app
-        </button>
-      </div>
-    </section>
-  );
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
 };
+const card = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+const hover3D = { scale: 1.02, rotateX: 2, rotateY: -2, transition: { duration: 0.3 } };
+
+const Partner: React.FC = () => (
+  <section
+    id="partner"
+    className="relative w-full py-28 px-6 max-w-7xl mx-auto text-white overflow-hidden"
+  >
+    {/* Fond décoratif léger */}
+    <div className="pointer-events-none absolute inset-0 bg-[url('/pattern-light.svg')] bg-center opacity-5" />
+
+    {/* Titre principal animé */}
+    <div className="text-center mb-20 relative z-10">
+      <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+        <TextGenerateEffect
+          className="inline-block"
+          words={[
+            { text: "DEVENEZ", white: true },
+            { text: "PARTENAIRE", white: false },
+            { text: "DE", white: true },
+            { text: "STARSARENA", white: false },
+          ]}
+        />
+      </h1>
+    </div>
+
+    {/* Cartes “bulles” */}
+    <motion.div
+      className="relative grid md:grid-cols-2 gap-12 mb-24 z-10"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={container}
+    >
+      {[
+        {
+          icon: "/icons8-musical-note.png",
+          title: "POURQUOI DEVENIR PARTENAIRE ?",
+          items: [
+            "Associez votre image à une app innovante",
+            "Gagnez en visibilité auprès d'un public jeune et engagé",
+            "Soutenez les nouveaux talents musicaux",
+            "Participez à une nouvelle scène musicale 100% digitale",
+          ],
+        },
+        {
+          icon: "/icons8-people.png",
+          title: "POUR QUI ?",
+          items: [
+            "Radios",
+            "Labels",
+            "Médias",
+            "Marques et sponsors",
+            "Structures qui soutiennent les artistes",
+          ],
+        },
+      ].map((cardData, idx) => (
+        <motion.div key={idx} variants={card} whileHover={hover3D} className="cursor-pointer">
+          <div className="rounded-3xl overflow-hidden transition-shadow shadow-xl hover:shadow-purple-700">
+            <div className="p-[2px] rounded-3xl bg-gradient-to-r from-purple-500 via-purple-400 to-indigo-500">
+              <div className="bg-[#120e23]/80 backdrop-blur-md rounded-3xl px-8 py-10 flex flex-col h-full">
+                <div className="flex flex-col items-center mb-8">
+                  <Image
+                    src={cardData.icon}
+                    alt=""
+                    width={64}
+                    height={64}
+                    className="mb-4"
+                  />
+                  <h2 className="text-2xl md:text-3xl font-bold text-purple-300 drop-shadow-md text-center">
+                    {cardData.title}
+                  </h2>
+                </div>
+                <ul className="list-disc pl-6 space-y-4 text-base md:text-lg font-medium flex-1">
+                  {cardData.items.map((line, i) => (
+                    <li key={i}>{line}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+
+    {/* Call to action */}
+    <div className="relative z-10 text-center max-w-3xl mx-auto">
+      <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        Télécharge dès maintenant l&apos;app StarsArena !
+      </h2>
+      <p className="text-xl md:text-2xl mb-10 font-medium leading-relaxed max-w-xl mx-auto">
+        Découvrez, votez et soutenez les artistes de demain depuis votre téléphone.
+      </p>
+      <button
+        className="rounded-full px-10 py-4 font-semibold text-lg transition
+                   bg-gradient-to-r from-purple-500 via-purple-400 to-indigo-500
+                   hover:from-indigo-500 hover:to-purple-500 shadow-lg hover:shadow-purple-400/50"
+      >
+        Télécharger l&apos;app
+      </button>
+    </div>
+  </section>
+);
 
 export default Partner;

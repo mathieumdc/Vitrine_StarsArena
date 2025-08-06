@@ -1,56 +1,59 @@
+"use client";
 import React from "react";
 import { cn } from "@/utils/cn";
+import { motion } from "framer-motion";
 
 type SpotlightProps = {
   className?: string;
   fill?: string;
+  intensity?: number; // contrôleur de flou
+  duration?: number; // durée de l'animation
 };
 
-export const Spotlight = ({ className, fill }: SpotlightProps) => {
+export const Spotlight: React.FC<SpotlightProps> = ({
+  className,
+  fill = "url(#gradient)",
+  intensity = 0.2,
+  duration = 2,
+}) => {
   return (
-    <svg
+    <motion.svg
+      initial={{ opacity: 0, scale: 1 }}
+      animate={{ opacity: 1, scale: [1, 1.05, 1] }}
+      transition={{ duration, ease: "easeInOut", repeat: Infinity }}
       className={cn(
-        "animate-spotlight pointer-events-none absolute z-[1]  h-[169%] w-[138%] lg:w-[84%] opacity-0",
+        "pointer-events-none absolute z-10 h-[170vh] w-[140vw] lg:w-[80vw]",
         className
       )}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 3787 2842"
       fill="none"
     >
-      <g filter="url(#filter)">
-        <ellipse
-          cx="1924.71"
-          cy="273.501"
-          rx="1924.71"
-          ry="273.501"
-          transform="matrix(-0.822377 -0.568943 -0.568943 0.822377 3631.88 2291.09)"
-          fill={fill || "white"}
-          fillOpacity="0.21"
-        ></ellipse>
-      </g>
       <defs>
+        <radialGradient id="gradient" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor={fill} stopOpacity={intensity} />
+          <stop offset="100%" stopColor={fill} stopOpacity="0" />
+        </radialGradient>
         <filter
-          id="filter"
-          x="0.860352"
-          y="0.838989"
-          width="3785.16"
-          height="2840.26"
+          id="spotlightBlur"
+          x="-50%"
+          y="-50%"
+          width="200%"
+          height="200%"
           filterUnits="userSpaceOnUse"
-          colorInterpolationFilters="sRGB"
         >
-          <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          ></feBlend>
-          <feGaussianBlur
-            stdDeviation="151"
-            result="effect1_foregroundBlur_1065_8"
-          ></feGaussianBlur>
+          <feGaussianBlur stdDeviation="100" />
         </filter>
       </defs>
-    </svg>
+      <ellipse
+        cx="50%"
+        cy="30%"
+        rx="50%"
+        ry="15%"
+        transform="translate(0,0)"
+        fill="url(#gradient)"
+        filter="url(#spotlightBlur)"
+      />
+    </motion.svg>
   );
 };
