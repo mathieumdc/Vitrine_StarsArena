@@ -9,7 +9,7 @@ const container = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15 } },
 };
-const card = {
+const cardAnim = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
@@ -29,9 +29,9 @@ const Partner: React.FC = () => (
         <TextGenerateEffect
           className="inline-block"
           words={[
-            { text: "DEVENEZ", white: true },
+            { text: "DEVENEZ",    white: true  },
             { text: "PARTENAIRE", white: false },
-            { text: "DE", white: true },
+            { text: "DE",         white: true  },
             { text: "STARSARENA", white: false },
           ]}
         />
@@ -52,9 +52,9 @@ const Partner: React.FC = () => (
           title: "POURQUOI DEVENIR PARTENAIRE ?",
           items: [
             "Associez votre image à une app innovante",
-            "Gagnez en visibilité auprès d'un public jeune et engagé",
+            "Gagnez en visibilité auprès d’un public jeune et engagé",
             "Soutenez les nouveaux talents musicaux",
-            "Participez à une nouvelle scène musicale 100% digitale",
+            "Participez à une nouvelle scène musicale 100 % digitale",
           ],
         },
         {
@@ -69,28 +69,45 @@ const Partner: React.FC = () => (
           ],
         },
       ].map((cardData, idx) => (
-        <motion.div key={idx} variants={card} whileHover={hover3D} className="cursor-pointer">
-          <div className="rounded-3xl overflow-hidden transition-shadow shadow-xl hover:shadow-purple-700">
-            <div className="p-[2px] rounded-3xl bg-gradient-to-r from-purple-500 via-purple-400 to-indigo-500">
-              <div className="bg-[#120e23]/80 backdrop-blur-md rounded-3xl px-8 py-10 flex flex-col h-full">
-                <div className="flex flex-col items-center mb-8">
-                  <Image
-                    src={cardData.icon}
-                    alt=""
-                    width={64}
-                    height={64}
-                    className="mb-4"
-                  />
-                  <h2 className="text-2xl md:text-3xl font-bold text-purple-300 drop-shadow-md text-center">
-                    {cardData.title}
-                  </h2>
-                </div>
-                <ul className="list-disc pl-6 space-y-4 text-base md:text-lg font-medium flex-1">
-                  {cardData.items.map((line, i) => (
-                    <li key={i}>{line}</li>
-                  ))}
-                </ul>
+        <motion.div
+          key={idx}
+          variants={cardAnim}
+          whileHover={hover3D}
+          className="cursor-pointer"
+        >
+          {/* Wrapper dégradé + coins arrondis */}
+          <div className="p-[2px] rounded-3xl bg-gradient-to-r from-purple-500 via-purple-400 to-indigo-500">
+            {/* Bulle principale */}
+            <div className="bg-[#120e23]/80 backdrop-blur-md rounded-3xl px-8 py-10 shadow-lg transition-shadow duration-500 hover:shadow-purple-700 h-full flex flex-col">
+              {/* Icône + titre */}
+              <div className="flex flex-col items-center mb-8">
+                <Image
+                  src={cardData.icon}
+                  alt=""
+                  width={64}
+                  height={64}
+                  className="mb-4"
+                />
+                <h2 className="text-2xl md:text-3xl font-bold text-purple-300 drop-shadow-md text-center">
+                  {cardData.title}
+                </h2>
               </div>
+              {/* Liste des points */}
+              <ul className="space-y-4 flex-1 list-none">
+                {cardData.items.map((line, i) => (
+                  <motion.li
+                    key={i}
+                    className="relative pl-2 rounded-lg"
+                    whileHover={{
+                      x: 4,
+                      backgroundColor: "rgba(138,43,226,0.1)",
+                    }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <span className="block py-2">{line}</span>
+                  </motion.li>
+                ))}
+              </ul>
             </div>
           </div>
         </motion.div>
@@ -100,7 +117,7 @@ const Partner: React.FC = () => (
     {/* Call to action */}
     <div className="relative z-10 text-center max-w-3xl mx-auto">
       <h2 className="text-3xl md:text-4xl font-bold mb-6">
-        Télécharge dès maintenant l&apos;app StarsArena !
+        Télécharge dès maintenant l’app StarsArena !
       </h2>
       <p className="text-xl md:text-2xl mb-10 font-medium leading-relaxed max-w-xl mx-auto">
         Découvrez, votez et soutenez les artistes de demain depuis votre téléphone.
@@ -110,7 +127,7 @@ const Partner: React.FC = () => (
                    bg-gradient-to-r from-purple-500 via-purple-400 to-indigo-500
                    hover:from-indigo-500 hover:to-purple-500 shadow-lg hover:shadow-purple-400/50"
       >
-        Télécharger l&apos;app
+        Télécharger l'app
       </button>
     </div>
   </section>

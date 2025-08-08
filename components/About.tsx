@@ -3,158 +3,225 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaBullhorn, FaUsers, FaMobileAlt, FaChartLine } from "react-icons/fa";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 
-const sections = [
+const competitorSections = [
   {
-    title: "C’est quoi StarsArena ?",
-    lines: [
-      { icon: FaBullhorn, text: "Une plateforme de tournois musicaux 100% en ligne." },
-      { icon: FaUsers, text: "Des duels musicaux live, jugés par le public." },
-      { icon: FaChartLine, text: "Un classement temps réel pour plus de suspense." },
-      { icon: FaMobileAlt, text: "Accessible depuis ton téléphone ou ton ordinateur." },
+    titleWords: [
+      { text: "Pourquoi",   white: true  },
+      { text: "rejoindre",  white: false },
+      { text: "StarsArena", white: false },
+      { text: "?",          white: true  },
     ],
-    img: "/rapBattle.svg",
-  },
-  {
-    title: "Pourquoi nous rejoindre ?",
     lines: [
-      { icon: FaChartLine, text: "Boostez votre visibilité auprès de milliers de fans." },
-      { icon: FaUsers, text: "Créez et fédérez votre propre communauté." },
-      { icon: FaBullhorn, text: "Transformez vos performances en revenus." },
-      { icon: FaMobileAlt, text: "Profitez d’outils de promotion intégrés." },
+      "Transforme ta passion en revenus et en fans fidèles.",
+      "Participe à des battles en ligne pour te faire repérer.",
+      "Gagne en visibilité et fais évoluer ton projet musical.",
+      "Deviens acteur d’une nouvelle scène musicale plus ouverte et plus interactive.",
     ],
     img: "/singer2.png",
   },
   {
-    title: "Comment ça marche ?",
+    titleWords: [
+      { text: "Comment", white: true },
+      { text: "ça",      white: true },
+      { text: "marche",  white: false},
+      { text: "?",       white: true },
+    ],
     lines: [
-      { icon: FaMobileAlt, text: "Inscrivez-vous gratuitement en quelques clics." },
-      { icon: FaBullhorn, text: "Publiez votre prestation audio ou vidéo." },
-      { icon: FaUsers, text: "Partagez le lien pour faire voter vos fans." },
-      { icon: FaChartLine, text: "Gravissez les échelons du podium digital." },
+      "Exprime ton talent depuis ton téléphone, sans te déplacer.",
+      "Chante, rappe, compose : tout style est le bienvenu.",
+      "Tu n’as pas besoin d’être chanteur pour faire partie du show : beatmakers, DJ… tu as ta place.",
     ],
     img: "/singer1.png",
   },
+];
+
+const spectatorSections = [
   {
-    title: "Le rôle du public",
+    titleWords: [
+      { text: "Et",     white: true },
+      { text: "le",     white: true },
+      { text: "public", white: false},
+      { text: "?",      white: true },
+    ],
     lines: [
-      { icon: FaUsers, text: "Votez pour vos talents préférés à chaque round." },
-      { icon: FaChartLine, text: "Influencez directement les résultats." },
-      { icon: FaBullhorn, text: "Partagez et recommandez autour de vous." },
-      { icon: FaMobileAlt, text: "Suivez les performances en live depuis votre appli." },
+      "Le public vote pour ses artistes préférés à chaque round.",
+      "Les fans influencent le classement en temps réel.",
+      "Fais monter ton artiste préféré sur le podium et découvre de nouveaux talents.",
     ],
     img: "/singer3.png",
   },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
-};
-const itemVariants = {
+const container = { hidden: {}, visible: { transition: { staggerChildren: 0.15 } } };
+const item = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
-const hover3D = { scale: 1.02, rotateX: 2, rotateY: -2, transition: { duration: 0.3 } };
+const cardHover = {
+  scale: 1.03,
+  boxShadow: "0 15px 30px rgba(138,43,226,0.4)",
+  transition: { duration: 0.4 },
+};
 
 const About: React.FC = () => (
-  <section
-    id="about"
-    className="relative w-full py-28 px-6 max-w-7xl mx-auto overflow-hidden text-white"
-  >
+  <section id="about" className="relative w-full py-28 px-6 max-w-7xl mx-auto overflow-hidden text-white">
     {/* Fond léger */}
     <div className="pointer-events-none absolute inset-0 bg-[url('/pattern-light.svg')] bg-center opacity-5" />
 
-    {/* Intro étoffée */}
-    <div className="relative z-10 text-center mb-16">
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
+    {/* Intro */}
+    <div className="text-center mb-16 relative z-10">
+      <h2 className="text-4xl font-extrabold mb-4">
         <TextGenerateEffect
           className="inline-block"
           words={[
-            { text: "A", white: true },
-            { text: "propos", white: false },
-            { text: "de", white: true },
-            { text: "StarsArena", white: true },
+            { text: "À",         white: true },
+            { text: "propos",    white: true },
+            { text: "de",        white: true },
+            { text: "StarsArena",white: false },
           ]}
         />
       </h2>
+      <p className="max-w-2xl mx-auto text-gray-300 text-lg">
+        Plonge dans les coulisses de notre plateforme et découvre comment nous
+        révolutionnons la compétition musicale.
+      </p>
     </div>
 
-    {/* Contenu animé */}
-    <motion.div
-      className="relative grid grid-cols-1 gap-16 z-10"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={containerVariants}
-    >
-      {sections.map((sec, idx) => {
-        const isEven = idx % 2 === 0;
-        return (
+    {/* Compétiteurs */}
+    <div id="competitors" className="mb-20">
+      <h3 className="text-3xl md:text-4xl font-bold text-center mb-12">
+        <TextGenerateEffect
+          className="inline-block"
+          words={[
+            { text: "Compétiteurs", white: false },
+          ]}
+        />
+      </h3>
+      <motion.div
+        className="space-y-24 relative z-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={container}
+      >
+        {competitorSections.map((sec, idx) => (
           <motion.div
             key={idx}
-            className={`flex flex-col md:flex-row items-center gap-12 ${
-              !isEven ? "md:flex-row-reverse" : ""
-            }`}
-            variants={itemVariants}
-            whileHover={hover3D}
+            className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+            variants={item}
           >
-            {/* Texte + points illustrés */}
-            <div className="flex-1">
+            {/* Texte + liste */}
+            <motion.div className="space-y-6" whileHover={cardHover} variants={item}>
+              <TextGenerateEffect
+                className="text-2xl md:text-3xl lg:text-4xl font-bold"
+                words={sec.titleWords}
+              />
               <div className="p-[2px] rounded-3xl bg-gradient-to-r from-purple-500 via-purple-400 to-indigo-500">
                 <div className="bg-[#120e23]/80 backdrop-blur-md rounded-3xl p-8 shadow-lg transition-shadow duration-500 hover:shadow-purple-700">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-6">
-                    {sec.title}
-                  </h3>
-                  <ul className="space-y-4 text-lg md:text-xl font-medium leading-relaxed">
-                    {sec.lines.map(({ icon: Icon, text }, i) => (
-                      <li key={i} className="flex items-start">
-                        <Icon className="text-purple-400 w-5 h-5 mt-1 mr-3 flex-shrink-0" />
-                        <span>{text}</span>
-                      </li>
+                  <ul className="space-y-4 text-lg md:text-xl font-medium leading-relaxed list-none">
+                    {sec.lines.map((text, i) => (
+                      <motion.li
+                        key={i}
+                        className="relative pl-2 rounded-lg"
+                        whileHover={{
+                          x: 4,
+                          backgroundColor: "rgba(138,43,226,0.1)",
+                        }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <span className="relative block py-2">{text}</span>
+                      </motion.li>
                     ))}
                   </ul>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Image arrondie */}
-            <div className="flex-1 max-w-md">
-              <div className="p-[2px] rounded-3xl bg-gradient-to-r from-purple-500 via-purple-400 to-indigo-500">
+            {/* Image */}
+            <motion.div
+              className={`flex justify-center ${idx % 2 === 1 ? "md:order-first" : ""}`}
+              variants={item}
+              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+            >
+              <div className="p-[2px] rounded-3xl bg-gradient-to-r from-purple-500 via-purple-400 to-indigo-500 max-w-md w-full">
                 <div className="bg-[#120e23]/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-105">
-                  <Image
-                    src={sec.img}
-                    alt={sec.title}
-                    width={800}
-                    height={538}
-                    className="w-full h-full object-cover"
-                  />
+                  <Image src={sec.img} alt="" width={800} height={538} className="w-full h-full object-cover" />
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
-        );
-      })}
-    </motion.div>
+        ))}
+      </motion.div>
+    </div>
 
-    {/* CTA final */}
-    <div className="relative z-10 text-center max-w-3xl mx-auto mt-20">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">
-        Prêt à relever le défi ?
-      </h2>
-      <p className="text-lg md:text-xl mb-8 text-gray-300">
-        Inscris-toi dès maintenant et entre dans l’arène pour partager ta musique
-        avec le monde entier.
-      </p>
-      <button
-        className="rounded-full px-10 py-4 font-semibold text-lg transition
-                   bg-gradient-to-r from-purple-500 via-purple-400 to-indigo-500
-                   hover:from-indigo-500 hover:to-purple-500 shadow-lg hover:shadow-purple-400/50"
+    {/* Spectateurs */}
+    <div id="spectators">
+      <h3 className="text-3xl md:text-4xl font-bold text-center mb-12">
+        <TextGenerateEffect
+          className="inline-block"
+          words={[
+            { text: "Section",    white: true },
+            { text: "Spectateurs", white: false },
+          ]}
+        />
+      </h3>
+      <motion.div
+        className="space-y-24 relative z-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={container}
       >
-        Créer mon compte
-      </button>
+        {spectatorSections.map((sec, idx) => (
+          <motion.div
+            key={idx}
+            className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+            variants={item}
+          >
+            {/* Texte + liste */}
+            <motion.div className="space-y-6" whileHover={cardHover} variants={item}>
+              <TextGenerateEffect
+                className="text-2xl md:text-3xl lg:text-4xl font-bold"
+                words={sec.titleWords}
+              />
+              <div className="p-[2px] rounded-3xl bg-gradient-to-r from-purple-500 via-purple-400 to-indigo-500">
+                <div className="bg-[#120e23]/80 backdrop-blur-md rounded-3xl p-8 shadow-lg transition-shadow duration-500 hover:shadow-purple-700">
+                  <ul className="space-y-4 text-lg md:text-xl font-medium leading-relaxed list-none">
+                    {sec.lines.map((text, i) => (
+                      <motion.li
+                        key={i}
+                        className="relative pl-2 rounded-lg"
+                        whileHover={{
+                          x: 4,
+                          backgroundColor: "rgba(138,43,226,0.1)",
+                        }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <span className="relative block py-2">{text}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Image */}
+            <motion.div
+              className={`flex justify-center ${idx % 2 === 1 ? "md:order-first" : ""}`}
+              variants={item}
+              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+            >
+              <div className="p-[2px] rounded-3xl bg-gradient-to-r from-purple-500 via-purple-400 to-indigo-500 max-w-md w-full">
+                <div className="bg-[#120e23]/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-105">
+                  <Image src={sec.img} alt="" width={800} height={538} className="w-full h-full object-cover" />
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        ))}
+      </motion.div>
     </div>
   </section>
 );
