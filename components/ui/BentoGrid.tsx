@@ -34,11 +34,13 @@ export const BentoGridItem = ({
   img,
   imgClassName,
   titleClassName,
-  spareImg
+  spareImg,
+  children
 }: {
   className?: string;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
+  children?: React.ReactNode;
   header?: React.ReactNode;
   icon?: React.ReactNode;
   id?: number;
@@ -67,7 +69,7 @@ export const BentoGridItem = ({
       }}
       
     >
-
+{children}
       <div className={`${id === 6 && 'flex justify-center'} h-full`}>
       <div className="w-full h-full absolute">
           {id === 1 ? ( // Si l'id est 1, affiche une vidéo

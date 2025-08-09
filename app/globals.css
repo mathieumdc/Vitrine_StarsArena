@@ -83,3 +83,29 @@
     @apply font-bold text-4xl md:text-5xl text-center;
   }
 }
+/* === StarsArena background animations === */
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0,0) scale(1); opacity: .9; }
+  50%      { transform: translate(10px,-8px) scale(1.03); opacity: 1; }
+}
+@keyframes bokehTwinkle {
+  0%,100%  { opacity: .4; transform: scale(1); }
+  50%      { opacity: .9; transform: scale(1.15); }
+}
+@keyframes bokehDrift {
+  0%   { transform: translate(0,0); }
+  100% { transform: translate(var(--dx, 0), var(--dy, 0)); }
+}
+
+.animate-blob { animation: blobFloat 16s ease-in-out infinite; }
+.animate-bokeh-twinkle { animation: bokehTwinkle 6s ease-in-out infinite; }
+.animate-bokeh-drift { animation: bokehDrift 16s ease-in-out infinite; }
+
+/* Respecte les préférences utilisateur */
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob,
+  .animate-bokeh-twinkle,
+  .animate-bokeh-drift {
+    animation: none !important;
+  }
+}

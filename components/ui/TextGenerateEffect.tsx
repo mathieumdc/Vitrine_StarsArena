@@ -1,61 +1,43 @@
+// components/ui/TextGenerateEffect.tsx
 "use client";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/utils/cn";
 
-export const TextGenerateEffect = ({
-  words,
-  className,
-  filter = true,
-  duration = 0.5,
-}: {
-  words: string;
+type WordItem = { text: string; white: boolean };
+
+export const TextGenerateEffect: React.FC<{
+  words: WordItem[];
   className?: string;
   filter?: boolean;
   duration?: number;
-}) => {
+}> = ({ words, className, filter = true, duration = 0.5 }) => {
   const [scope, animate] = useAnimate();
-  const wordsArray = words.split(" ");
 
   useEffect(() => {
     animate(
       "span",
-      {
-        opacity: 1,
-        filter: filter ? "blur(0px)" : "none",
-      },
-      {
-        duration: duration,
-        delay: stagger(0.2),
-      }
+      { opacity: 1, filter: filter ? "blur(0px)" : "none" },
+      { duration, delay: stagger(0.15) }
     );
   }, [animate, filter, duration]);
 
-  const renderWords = () => {
-    return (
-      <motion.div ref={scope}>
-        {wordsArray.map((word, idx) => (
+  return (
+    <div className={cn("font-bold inline-block", className)}>
+      <motion.div ref={scope} className="leading-snug tracking-tight">
+        {words.map(({ text, white }, idx) => (
           <motion.span
-            key={word + idx}
+            key={text + idx}
             className={cn(
-              idx > 3 ? "text-purple" : "dark:text-white text-black",
-              "opacity-0"
+              white ? "text-white" : "text-[#CBACF9]",
+              "opacity-0 inline-block pr-1"
             )}
           >
-            {word}{" "}
+            {text}
+            &nbsp;
           </motion.span>
         ))}
       </motion.div>
-    );
-  };
-
-  return (
-    <div className={cn("font-bold", className)}>
-      <div className="mt-4">
-        <div className="dark:text-white text-black leading-snug tracking-wide">
-          {renderWords()}
-        </div>
-      </div>
     </div>
   );
 };
