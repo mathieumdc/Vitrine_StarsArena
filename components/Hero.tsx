@@ -6,12 +6,6 @@ import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow, FaMicrophone, FaUsers } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-const cardHover = {
-  scale: 1.03,
-  boxShadow: "0 15px 30px rgba(138,43,226,0.4)",
-  transition: { duration: 0.3 },
-};
-
 const Hero: React.FC = () => {
   return (
     <section id="hero" className="relative w-full min-h-screen overflow-hidden">
@@ -42,8 +36,22 @@ const Hero: React.FC = () => {
             dans des compétitions de musique passionnantes
           </p>
 
+          {/* Question au-dessus du choix */}
+          <div className="mt-10">
+            <p className="text-xs md:text-sm tracking-wide text-purple-200/90">
+              Qui êtes-vous ? <span className="text-gray-300">Choisissez votre expérience</span>
+            </p>
+          </div>
+
           {/* Cartes Compétiteur / Spectateur */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12 w-full max-w-3xl mx-auto">
+          <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4 w-full max-w-3xl mx-auto">
+            {/* Badge “OU” centré (desktop) */}
+            <div
+              aria-hidden
+              className="hidden sm:block absolute inset-y-0 left-1/2 -translate-x-1/2 flex items-center justify-center"
+            >
+            </div>
+
             {[
               {
                 title: "Je suis compétiteur",
@@ -62,9 +70,9 @@ const Hero: React.FC = () => {
                 key={idx}
                 whileHover={{
                   scale: 1.02,
-                  boxShadow: "0 8px 16px rgba(138,43,226,0.3)",
+                  boxShadow: "0 8px 18px rgba(138,43,226,0.35)",
                 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.25 }}
                 className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-purple-600 to-indigo-600 p-[2px]"
               >
                 <a
@@ -77,6 +85,21 @@ const Hero: React.FC = () => {
                 </a>
               </motion.div>
             ))}
+          </div>
+
+          {/* Aide sous le choix */}
+          <p className="mt-3 text-xs text-gray-400">
+            Pas sûr ? Faites défiler pour comparer les expériences, Soyez qui vous voulez être.
+          </p>
+
+          {/* Bouton principal (si tu le gardes) */}
+          <div className="mt-8">
+            <MagicButton
+              title="Télécharger l'app"
+              icon={<FaLocationArrow />}
+              position="right"
+              href="#about"
+            />
           </div>
         </div>
       </div>

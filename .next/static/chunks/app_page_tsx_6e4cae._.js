@@ -1,11 +1,11 @@
 (globalThis.TURBOPACK = globalThis.TURBOPACK || []).push([
-    "static/chunks/app_page_tsx_6bd7bf._.js",
+    "static/chunks/app_page_tsx_6e4cae._.js",
     {},
 ]);
 (globalThis.TURBOPACK_CHUNK_LISTS = globalThis.TURBOPACK_CHUNK_LISTS || []).push({
-  "path": "static/chunks/app_page_tsx_6bd7bf._.js",
+  "path": "static/chunks/app_page_tsx_6e4cae._.js",
   "chunks": [
-    "static/chunks/_cb70c9._.js",
+    "static/chunks/_317f1f._.js",
     "static/chunks/node_modules_framer-motion_dist_es_682d67._.js",
     "static/chunks/node_modules_react-icons_fa_index_mjs_d2e2d7._.js",
     "static/chunks/node_modules_react-icons_lib_74ccc9._.js",
