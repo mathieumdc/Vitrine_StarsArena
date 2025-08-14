@@ -9,27 +9,37 @@ import { motion } from "framer-motion";
 const Hero: React.FC = () => {
   return (
     <section id="hero" className="relative w-full min-h-screen overflow-hidden">
-      <div className="relative z-10 pb-20 pt-36 flex flex-col items-center justify-center">
+      <div className="relative z-10 pb-20 pt-12 flex flex-col items-center justify-center">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] text-center text-white my-20">
           <h2 className="uppercase tracking-widest text-xs text-blue-100 mb-3">
             Le futur des compétitions artistiques
           </h2>
 
-          <TextGenerateEffect
-            className="text-[40px] md:text-5xl lg:text-6xl"
-            words={[
-              { text: "Rejoignez", white: false },
-              { text: "StarsArena", white: false },
-              { text: ":", white: true },
-              { text: "Devenez", white: true },
-              { text: "la", white: true },
-              { text: "Prochaine", white: true },
-              { text: "Icône", white: true },
-              { text: "de", white: true },
-              { text: "la", white: true },
-              { text: "Musique", white: true },
-            ]}
-          />
+          <div className="leading-tight">
+            {/* Ligne 1 : reste sur une seule ligne */}
+            <TextGenerateEffect
+              className="block text-[40px] md:text-5xl lg:text-6xl whitespace-nowrap"
+              words={[
+                { text: "Rejoignez", white: false },
+                { text: "StarsArena", white: false },
+                { text: ":", white: true },
+              ]}
+            />
+
+            {/* Ligne 2 : le reste en dessous */}
+            <TextGenerateEffect
+              className="block text-[40px] md:text-5xl lg:text-6xl mt-1"
+              words={[
+                { text: "Devenez", white: true },
+                { text: "la", white: true },
+                { text: "Prochaine", white: true },
+                { text: "Icône", white: true },
+                { text: "de", white: true },
+                { text: "la", white: true },
+                { text: "Musique", white: true },
+              ]}
+            />
+          </div>
 
           <p className="mt-4 text-sm md:text-lg lg:text-2xl max-w-xl mx-auto">
             Présentez vos talents, gagnez des trophées et des récompenses

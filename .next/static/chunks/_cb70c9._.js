@@ -180,7 +180,7 @@ const Hero = ()=>{
         id: "hero",
         className: "relative w-full min-h-screen overflow-hidden",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "relative z-10 pb-20 pt-36 flex flex-col items-center justify-center",
+            className: "relative z-10 pb-20 pt-12 flex flex-col items-center justify-center",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] text-center text-white my-20",
                 children: [
@@ -192,51 +192,69 @@ const Hero = ()=>{
                         lineNumber: 14,
                         columnNumber: 11
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$TextGenerateEffect$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TextGenerateEffect"], {
-                        className: "text-[40px] md:text-5xl lg:text-6xl",
-                        words: [
-                            {
-                                text: "Rejoignez",
-                                white: false
-                            },
-                            {
-                                text: "StarsArena",
-                                white: false
-                            },
-                            {
-                                text: ":",
-                                white: true
-                            },
-                            {
-                                text: "Devenez",
-                                white: true
-                            },
-                            {
-                                text: "la",
-                                white: true
-                            },
-                            {
-                                text: "Prochaine",
-                                white: true
-                            },
-                            {
-                                text: "Icône",
-                                white: true
-                            },
-                            {
-                                text: "de",
-                                white: true
-                            },
-                            {
-                                text: "la",
-                                white: true
-                            },
-                            {
-                                text: "Musique",
-                                white: true
-                            }
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "leading-tight",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$TextGenerateEffect$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TextGenerateEffect"], {
+                                className: "block text-[40px] md:text-5xl lg:text-6xl whitespace-nowrap",
+                                words: [
+                                    {
+                                        text: "Rejoignez",
+                                        white: false
+                                    },
+                                    {
+                                        text: "StarsArena",
+                                        white: false
+                                    },
+                                    {
+                                        text: ":",
+                                        white: true
+                                    }
+                                ]
+                            }, void 0, false, {
+                                fileName: "[project]/components/Hero.tsx",
+                                lineNumber: 20,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$TextGenerateEffect$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TextGenerateEffect"], {
+                                className: "block text-[40px] md:text-5xl lg:text-6xl mt-1",
+                                words: [
+                                    {
+                                        text: "Devenez",
+                                        white: true
+                                    },
+                                    {
+                                        text: "la",
+                                        white: true
+                                    },
+                                    {
+                                        text: "Prochaine",
+                                        white: true
+                                    },
+                                    {
+                                        text: "Icône",
+                                        white: true
+                                    },
+                                    {
+                                        text: "de",
+                                        white: true
+                                    },
+                                    {
+                                        text: "la",
+                                        white: true
+                                    },
+                                    {
+                                        text: "Musique",
+                                        white: true
+                                    }
+                                ]
+                            }, void 0, false, {
+                                fileName: "[project]/components/Hero.tsx",
+                                lineNumber: 30,
+                                columnNumber: 13
+                            }, this)
                         ]
-                    }, void 0, false, {
+                    }, void 0, true, {
                         fileName: "[project]/components/Hero.tsx",
                         lineNumber: 18,
                         columnNumber: 11
@@ -246,7 +264,7 @@ const Hero = ()=>{
                         children: "Présentez vos talents, gagnez des trophées et des récompenses dans des compétitions de musique passionnantes"
                     }, void 0, false, {
                         fileName: "[project]/components/Hero.tsx",
-                        lineNumber: 34,
+                        lineNumber: 44,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -260,18 +278,18 @@ const Hero = ()=>{
                                     children: "Choisissez votre expérience"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Hero.tsx",
-                                    lineNumber: 42,
+                                    lineNumber: 52,
                                     columnNumber: 31
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/Hero.tsx",
-                            lineNumber: 41,
+                            lineNumber: 51,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/Hero.tsx",
-                        lineNumber: 40,
+                        lineNumber: 50,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -282,7 +300,7 @@ const Hero = ()=>{
                                 className: "hidden sm:block absolute inset-y-0 left-1/2 -translate-x-1/2 flex items-center justify-center"
                             }, void 0, false, {
                                 fileName: "[project]/components/Hero.tsx",
-                                lineNumber: 49,
+                                lineNumber: 59,
                                 columnNumber: 13
                             }, this),
                             [
@@ -292,7 +310,7 @@ const Hero = ()=>{
                                         className: "w-7 h-7 text-purple-400"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Hero.tsx",
-                                        lineNumber: 58,
+                                        lineNumber: 68,
                                         columnNumber: 23
                                     }, this),
                                     desc: "Participez aux duels & grimpez sur le podium.",
@@ -304,7 +322,7 @@ const Hero = ()=>{
                                         className: "w-7 h-7 text-purple-400"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Hero.tsx",
-                                        lineNumber: 64,
+                                        lineNumber: 74,
                                         columnNumber: 23
                                     }, this),
                                     desc: "Votez en live & découvrez de nouveaux talents.",
@@ -328,7 +346,7 @@ const Hero = ()=>{
                                                 children: card.icon
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Hero.tsx",
-                                                lineNumber: 82,
+                                                lineNumber: 92,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -336,7 +354,7 @@ const Hero = ()=>{
                                                 children: card.title
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Hero.tsx",
-                                                lineNumber: 83,
+                                                lineNumber: 93,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -344,24 +362,24 @@ const Hero = ()=>{
                                                 children: card.desc
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Hero.tsx",
-                                                lineNumber: 84,
+                                                lineNumber: 94,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/Hero.tsx",
-                                        lineNumber: 78,
+                                        lineNumber: 88,
                                         columnNumber: 17
                                     }, this)
                                 }, idx, false, {
                                     fileName: "[project]/components/Hero.tsx",
-                                    lineNumber: 69,
+                                    lineNumber: 79,
                                     columnNumber: 15
                                 }, this))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/Hero.tsx",
-                        lineNumber: 47,
+                        lineNumber: 57,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -369,7 +387,7 @@ const Hero = ()=>{
                         children: "Pas sûr ? Faites défiler pour comparer les expériences, Soyez qui vous voulez être."
                     }, void 0, false, {
                         fileName: "[project]/components/Hero.tsx",
-                        lineNumber: 91,
+                        lineNumber: 101,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -378,19 +396,19 @@ const Hero = ()=>{
                             title: "Télécharger l'app",
                             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaLocationArrow"], {}, void 0, false, {
                                 fileName: "[project]/components/Hero.tsx",
-                                lineNumber: 99,
+                                lineNumber: 109,
                                 columnNumber: 21
                             }, void 0),
                             position: "right",
                             href: "#about"
                         }, void 0, false, {
                             fileName: "[project]/components/Hero.tsx",
-                            lineNumber: 97,
+                            lineNumber: 107,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/Hero.tsx",
-                        lineNumber: 96,
+                        lineNumber: 106,
                         columnNumber: 11
                     }, this)
                 ]

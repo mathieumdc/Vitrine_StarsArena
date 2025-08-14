@@ -1217,6 +1217,10 @@ button:active {
   overflow-x: auto;
 }
 
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
 .whitespace-pre-line {
   white-space: pre-line;
 }
@@ -1400,10 +1404,6 @@ button:active {
   background-position: center;
 }
 
-.object-contain {
-  object-fit: contain;
-}
-
 .object-cover {
   object-fit: cover;
 }
@@ -1561,6 +1561,14 @@ button:active {
   padding-top: 9rem;
 }
 
+.pt-3 {
+  padding-top: .75rem;
+}
+
+.pt-12 {
+  padding-top: 3rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1619,6 +1627,18 @@ button:active {
 .text-xs {
   font-size: .75rem;
   line-height: 1rem;
+}
+
+.text-\[0px\] {
+  font-size: 0;
+}
+
+.text-\[80px\] {
+  font-size: 80px;
+}
+
+.text-\[900px\] {
+  font-size: 900px;
 }
 
 .font-bold {
@@ -2210,6 +2230,11 @@ button:active {
     line-height: 1;
   }
 
+  .md\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
@@ -2228,6 +2253,11 @@ button:active {
   .md\:text-xs {
     font-size: .75rem;
     line-height: 1rem;
+  }
+
+  .md\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
   }
 
   .md\:blur-3xl {
@@ -2297,6 +2327,10 @@ button:active {
     gap: 2rem;
   }
 
+  .lg\:text-ellipsis {
+    text-overflow: ellipsis;
+  }
+
   .lg\:rounded-3xl {
     border-radius: 1.5rem;
   }
@@ -2353,6 +2387,16 @@ button:active {
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .lg\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .lg\:text-8xl {
+    font-size: 6rem;
+    line-height: 1;
   }
 
   .lg\:font-normal {
