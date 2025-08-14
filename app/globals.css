@@ -101,7 +101,6 @@
 .animate-bokeh-twinkle { animation: bokehTwinkle 6s ease-in-out infinite; }
 .animate-bokeh-drift { animation: bokehDrift 16s ease-in-out infinite; }
 
-/* Respecte les préférences utilisateur */
 @media (prefers-reduced-motion: reduce) {
   .animate-blob,
   .animate-bokeh-twinkle,

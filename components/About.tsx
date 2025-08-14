@@ -4,40 +4,48 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
+// en haut du fichier About.tsx
+import {
+  HiOutlineSquares2X2,
+  HiOutlineMicrophone,
+  HiOutlineTicket,
+  HiOutlineHandThumbUp,
+   HiOutlineUserGroup, HiOutlineClock, HiOutlineTrophy,
+} from "react-icons/hi2";
 
 const container = { hidden: {}, visible: { transition: { staggerChildren: 0.15 } } };
 const item = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
-
 // Cartes “Comment ça marche ?”
 const howItWorks = [
   {
     title: "Choisis ta catégorie",
     text:
       "Inscris-toi à un tournoi (Rap, Pop, etc.) selon ton style. Les compétitions sont organisées par thèmes pour plus d’équité.",
-    img: "/icons/category.svg",
+    Icon: HiOutlineSquares2X2,
   },
   {
     title: "Enregistre depuis l’app",
     text:
       "Filme/importe ta prestation directement depuis l’application. L’identité est vérifiée et la reconnaissance vocale contribue à limiter la triche.",
-    img: "/icons/record.svg",
+    Icon: HiOutlineMicrophone,
   },
   {
     title: "Valide ton ticket",
     text:
       "Chaque participation nécessite un ticket d’entrée (à l’unité, en pack ou via abonnement si tu joues souvent).",
-    img: "/icons/ticket.svg",
+    Icon: HiOutlineTicket,
   },
   {
     title: "Monte grâce aux votes",
     text:
       "Les matchs se jouent en 1 contre 1. Les spectateurs doivent regarder au moins 15 s avant de pouvoir voter. Les gagnants avancent à la manche suivante.",
-    img: "/icons/vote.svg",
+    Icon: HiOutlineHandThumbUp,
   },
 ];
+
 
 // Sections Compétiteurs (2 blocs alternés)
 const competitorSections = [
@@ -151,14 +159,10 @@ const About: React.FC = () => (
             <div className="relative p-[2px] rounded-3xl bg-gradient-to-r from-purple-500 via-purple-400 to-indigo-500 h-full">
               <div className="bg-[#120e23]/80 rounded-3xl p-6 h-full">
                 {/* Icône sans fond/ring => plus de petit carré même si l'image casse */}
-                <div className="h-10 w-10 mb-3 rounded-lg overflow-hidden flex items-center justify-center">
-                  <Image
-                    src={s.img}
-                    alt=""
-                    width={24}
-                    height={24}
-                    className="w-6 h-6 object-contain"
-                  />
+                <div className="h-10 w-10 mb-3 rounded-lg bg-white/5 ring-1 ring-white/10
+                                flex items-center justify-center">
+                  <s.Icon className="w-6 h-6 text-purple-300" aria-hidden="true" />
+                  <span className="sr-only">{s.title}</span>
                 </div>
 
                 <h3 className="text-lg font-semibold mb-2">{s.title}</h3>
@@ -246,39 +250,60 @@ const About: React.FC = () => (
         ))}
       </motion.div>
     </div>
-
     {/* RÈGLES DU DUEL */}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
       {[
-        { title: "1 contre 1", text: "Chaque match oppose deux artistes. Le vainqueur passe à la manche suivante, le perdant est éliminé." },
-        { title: "Vote après 15 s", text: "Les spectateurs doivent regarder le duel au moins 15 secondes avant de pouvoir voter." },
-        { title: "Classement & trophées", text: "Les meilleurs montent au classement, gagnent des trophées et des récompenses/cash prizes." },
-      ].map((r, i) => (
+        {
+          title: "1 contre 1",
+          text:
+            "Chaque match oppose deux artistes. Le vainqueur passe à la manche suivante, le perdant est éliminé.",
+          Icon: HiOutlineUserGroup,
+        },
+        {
+          title: "Vote après 15s",
+          text:
+            "Les spectateurs doivent regarder le duel au moins 15 secondes avant de pouvoir voter.",
+          Icon: HiOutlineClock,
+        },
+        {
+          title: "Classement & trophées",
+          text:
+            "Les meilleurs montent au classement, gagnent des trophées et des récompenses/cash prizes.",
+          Icon: HiOutlineTrophy,
+        },
+      ].map(({ title, text, Icon }, i) => (
         <motion.div
           key={i}
           whileHover={{
             y: -1,
-            boxShadow:
-              "0 10px 30px rgba(168,85,247,0.20), 0 6px 16px rgba(79,70,229,0.18)",
+            boxShadow: "0 10px 30px rgba(168,85,247,0.20), 0 6px 16px rgba(79,70,229,0.18)",
           }}
           transition={{ duration: 0.22 }}
           className="relative group rounded-3xl"
         >
-          {/* Glow flou CLIPPÉ */}
+          {/* Glow flou CLIPPÉ au hover */}
           <div className="pointer-events-none absolute inset-0 rounded-[inherit] overflow-hidden">
             <div className="absolute inset-0 rounded-[inherit] bg-gradient-to-r from-purple-500 via-fuchsia-500 to-indigo-500
                             opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-20" />
           </div>
 
+          {/* Carte avec contour dégradé */}
           <div className="relative p-[2px] rounded-3xl bg-gradient-to-r from-purple-500 via-purple-400 to-indigo-500">
             <div className="bg-[#120e23]/80 rounded-3xl p-6">
-              <h4 className="text-lg font-semibold mb-2">{r.title}</h4>
-              <p className="text-sm text-gray-300 leading-relaxed">{r.text}</p>
+              {/* Icône (même style que les 4 cartes) */}
+              <div className="h-10 w-10 mb-3 rounded-lg bg-white/5 ring-1 ring-white/10 flex items-center justify-center">
+                <Icon className="w-6 h-6 text-purple-300" aria-hidden="true" />
+                <span className="sr-only">{title}</span>
+              </div>
+
+              <h4 className="text-lg font-semibold mb-2">{title}</h4>
+              <p className="text-sm text-gray-300 leading-relaxed">{text}</p>
             </div>
           </div>
         </motion.div>
       ))}
     </div>
+
 
     {/* SPECTATEURS */}
     <div id="spectators">

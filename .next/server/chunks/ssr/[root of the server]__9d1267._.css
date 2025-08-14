@@ -731,6 +731,18 @@ button:active {
   }
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .pointer-events-none {
   pointer-events: none;
 }
@@ -887,6 +899,10 @@ button:active {
   margin-bottom: 4rem;
 }
 
+.mb-2 {
+  margin-bottom: .5rem;
+}
+
 .mb-20 {
   margin-bottom: 5rem;
 }
@@ -959,10 +975,6 @@ button:active {
   margin-top: 2rem;
 }
 
-.mb-2 {
-  margin-bottom: .5rem;
-}
-
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -1001,6 +1013,10 @@ button:active {
   display: none;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
 .h-12 {
   height: 3rem;
 }
@@ -1011,6 +1027,10 @@ button:active {
 
 .h-4 {
   height: 1rem;
+}
+
+.h-6 {
+  height: 1.5rem;
 }
 
 .h-7 {
@@ -1045,14 +1065,6 @@ button:active {
   height: 100%;
 }
 
-.h-10 {
-  height: 2.5rem;
-}
-
-.h-6 {
-  height: 1.5rem;
-}
-
 .min-h-40 {
   min-height: 10rem;
 }
@@ -1061,8 +1073,16 @@ button:active {
   min-height: 100vh;
 }
 
+.w-10 {
+  width: 2.5rem;
+}
+
 .w-4 {
   width: 1rem;
+}
+
+.w-6 {
+  width: 1.5rem;
 }
 
 .w-60 {
@@ -1095,14 +1115,6 @@ button:active {
 
 .w-full {
   width: 100%;
-}
-
-.w-10 {
-  width: 2.5rem;
-}
-
-.w-6 {
-  width: 1.5rem;
 }
 
 .max-w-2xl {
@@ -1315,6 +1327,10 @@ button:active {
   border-radius: 50%;
 }
 
+.rounded-\[inherit\] {
+  border-radius: inherit;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -1329,10 +1345,6 @@ button:active {
 
 .rounded-xl {
   border-radius: .75rem;
-}
-
-.rounded-\[inherit\] {
-  border-radius: inherit;
 }
 
 .border {
@@ -1621,10 +1633,6 @@ button:active {
 
 .pl-10 {
   padding-left: 2.5rem;
-}
-
-.pl-2 {
-  padding-left: .5rem;
 }
 
 .pr-1 {
@@ -2141,12 +2149,12 @@ button:active {
   opacity: .15;
 }
 
-.group:hover .group-hover\:opacity-30 {
-  opacity: .3;
-}
-
 .group:hover .group-hover\:opacity-20 {
   opacity: .2;
+}
+
+.group:hover .group-hover\:opacity-30 {
+  opacity: .3;
 }
 
 .dark\:shadow-none:is(.dark *) {
@@ -2170,10 +2178,6 @@ button:active {
 
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .sm\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .sm\:flex-row {
@@ -2215,12 +2219,12 @@ button:active {
     grid-row: span 4 / span 4;
   }
 
-  .md\:mt-10 {
-    margin-top: 2.5rem;
-  }
-
   .md\:mb-24 {
     margin-bottom: 6rem;
+  }
+
+  .md\:mt-10 {
+    margin-top: 2.5rem;
   }
 
   .md\:h-full {
@@ -2367,12 +2371,12 @@ button:active {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .lg\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .lg\:justify-center {
